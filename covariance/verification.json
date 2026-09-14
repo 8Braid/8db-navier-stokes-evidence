@@ -1,0 +1,35 @@
+{
+  "schema": "public-covariance-lean-check-v1",
+  "scope": "Standalone normalized real-algebra lemma checked by the Lean compiler/kernel. This attachment does not run the original PDE construction, Comparator, Nanoda, or a database admission verifier.",
+  "proof_file": "8DB-OpenAI-Covariance-Lemma.lean",
+  "proof_sha256": "1a654b9f6c0f92a71f990b4af482f48e6cb1dead960fb3c350944188ac1e5c87",
+  "proof_unchanged_from_previously_checked_file": true,
+  "original_log_copied_unchanged": true,
+  "exit_code": 0,
+  "started_utc": "2026-09-14T03:29:02.177118+00:00",
+  "finished_utc": "2026-09-14T03:29:18.338434+00:00",
+  "command_template": [
+    "lake",
+    "env",
+    "lean",
+    "<attachment>/8DB-OpenAI-Covariance-Lemma.lean"
+  ],
+  "command_context": "Existing pinned upstream environment; local machine paths omitted from this public record. No full upstream build was invoked by this check.",
+  "LEAN_NUM_THREADS": 1,
+  "lean_version": "Lean (version 4.34.0-rc2, x86_64-w64-windows-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)",
+  "lean_toolchain": "leanprover/lean4:v4.34.0-rc2",
+  "environment_repository": "https://github.com/openai/NavierStokesAndEuler",
+  "environment_commit": "f9e8bc5b38b6e212696e8a30e3e91517af887bbd",
+  "mathlib_repository": "https://github.com/leanprover-community/mathlib4",
+  "mathlib_commit": "85e3a25e006c35636f0e53b0e9296caca2685bc0",
+  "environment_tracked_source_unchanged": true,
+  "mathlib_tracked_source_unchanged": true,
+  "printed_axiom_report_count": 7,
+  "printed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "public_check_log_sha256": "1443163a1ca69128f2e161cad9723532f078ad5738abb65bea93bdca3b17e148",
+  "original_check_log_sha256": "299055e2a15f19080d912528ffb9da8acdb919342006da156b4dc062a656d4ea"
+}

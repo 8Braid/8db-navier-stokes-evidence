@@ -1,0 +1,275 @@
+{
+  "schema": "public-upstream-formal-replay-summary-v1",
+  "status": "recorded_upstream_checks_passed",
+  "scope": "Sanitized historical summary of the encoded forced C/D submission checks. No proof build or kernel replay was rerun while assembling this public companion.",
+  "provenance": {
+    "sealed_archive": "8DB-OpenAI-Direct-Verification-20260913.zip",
+    "sealed_archive_sha256": "712fbd3df66623912068057c3c91f2adb9a2813582bd9a3f7e35727b645a4176",
+    "sealed_manifest_sha256": "b08dc5ced304c3b731893c0fa9d8d1cdf39157358fc12e025a8a8f567620a6db",
+    "sealed_manifest_payloads_verified": 2752,
+    "summary_source_record": "8DB-OpenAI-Direct-Verification.json",
+    "summary_source_record_sha256": "8195dbdc2c2c8a95fc3baef092df10f29426c917f1a5d551705661e6e5dc0388",
+    "original_linux_receipt_sha256": "0afc427c0d419c24dd5dfbf5cc82f025f4f0f2049d91f6bc5feefb2879d51e9e",
+    "original_windows_runtime_receipt_sha256": "e528446dc797e52e85d4076fecb2d62231d23b1a8697d3f7cac516d3d2caae89",
+    "sanitization": "Explicitly selected public source identities, hashes, scopes and outcomes. Original local paths, account identifiers, process IDs, internal repository references and resource measurements are omitted. Original sealed receipts are not modified or included here.",
+    "availability": "The sealed archive and complete raw transcripts are identified by hash but are not redistributed in this small public companion."
+  },
+  "upstream_source": {
+    "repository": "https://github.com/openai/NavierStokesAndEuler",
+    "commit": "f9e8bc5b38b6e212696e8a30e3e91517af887bbd",
+    "tracked_files_checked": 2669,
+    "windows_source_inventory_sha256": "29958dbf014727a458ae7e9514d4eb0552b9c35d3a670dd73c32919bd6275618",
+    "windows_worktree_file_sha256": {
+      "ComparatorChallenges/NavierStokes.json": "3ef191c3484d61c163e57abc7e1405d7ccd336d121ba1120f1643cc61c84cc58",
+      "ComparatorChallenges/NavierStokes.lean": "2f81f812237135d56db34771d218cb6e9df37775619f98692608950671e70381",
+      "NavierStokes/ComparatorSolution.lean": "a13d3534019132e5e70c62a87406c0c565aa9420b317abd793e36a997b828c7b",
+      "NavierStokes/ComparatorDefinitions.lean": "84f819f2ea817980209587ee3181dcba05e94c6a9836f7ad28779cfab19d7189",
+      "lake-manifest.json": "d8d5387db4bfe8dcdd867d1c4979d2911f194dfe8dae3012463c620e19c6001f",
+      "lakefile.toml": "5af26a830790b85b2498fce44349536bb60ce0f126189c7f6e094afedf435618",
+      "lean-toolchain": "b563246bde88bad741a3fe1c6b126ad8dab470340d55ac3e97cca9b3f200878b"
+    },
+    "linux_worktree_file_sha256": {
+      "ComparatorChallenges/NavierStokes.json": "7610ecead7b390d80ff7f4229a3ff8f18d630e046f7ad1de4f92c7e8e76845b8",
+      "lake-manifest.json": "5ec1dc8e009008d0efb9601cd38f6ba54e753fd538b0e5f8c3e6c5ec72ee1e09",
+      "lakefile.toml": "97b2804da5b9a2cd0aaf44ce42b7c39e9947beff9d2ac01a11e0d3d867af1c09"
+    },
+    "line_endings": "Windows and Linux hashes identify the recorded worktree bytes under the same Git revision. Platform line endings can differ.",
+    "dependencies": {
+      "Comparator": {
+        "repository": "https://github.com/leanprover/comparator.git",
+        "commit": "19e111e2141cf333c7daff0f64c5f24acc91dd2e"
+      },
+      "mathlib": {
+        "repository": "https://github.com/leanprover-community/mathlib4.git",
+        "commit": "85e3a25e006c35636f0e53b0e9296caca2685bc0"
+      },
+      "lean4export": {
+        "repository": "https://github.com/leanprover/lean4export",
+        "commit": "cacf989bd75f608700820f6afc595f32e7a99a4d"
+      },
+      "plausible": {
+        "repository": "https://github.com/leanprover-community/plausible",
+        "commit": "d9598f07b1bc701f1e3aae163d2681c1fd978793"
+      },
+      "LeanSearchClient": {
+        "repository": "https://github.com/leanprover-community/LeanSearchClient",
+        "commit": "ba67e212be1197b84c1f1f6299488a10a3002713"
+      },
+      "importGraph": {
+        "repository": "https://github.com/leanprover-community/import-graph",
+        "commit": "d8823026ac7ef130c253089d95685f9877b95323"
+      },
+      "proofwidgets": {
+        "repository": "https://github.com/leanprover-community/ProofWidgets4",
+        "commit": "a8acbfd87375ff4abe14ce09db5b7664d383bc7f"
+      },
+      "aesop": {
+        "repository": "https://github.com/leanprover-community/aesop",
+        "commit": "18889deb9e83ea7420ef51c160d6f88552e744e3"
+      },
+      "Qq": {
+        "repository": "https://github.com/leanprover-community/quote4",
+        "commit": "507746ab8f4b643ccdacb2ec4cdb5853fa9f8ab3"
+      },
+      "batteries": {
+        "repository": "https://github.com/leanprover-community/batteries",
+        "commit": "d54dddc581e08be364c278052863524bff7a99a9"
+      },
+      "Cli": {
+        "repository": "https://github.com/leanprover/lean4-cli",
+        "commit": "ab3a82db9fea14cf0fd7f5a2de650f4b534640af"
+      }
+    },
+    "dependency_pins_and_tracked_sources_intact_on_both_platforms": true
+  },
+  "windows": {
+    "phases": {
+      "build-t2": {
+        "status": "passed",
+        "exit_code": 0,
+        "command_template": [
+          "lake",
+          "build",
+          "NavierStokes",
+          "ComparatorChallenges.NavierStokes"
+        ],
+        "LEAN_NUM_THREADS": 2,
+        "started_utc": "2026-09-14T02:04:29.435749+00:00",
+        "finished_utc": "2026-09-14T02:50:40.593470+00:00",
+        "source_unchanged": true,
+        "original_receipt_sha256": "1cc68b997652775a97b942b07aae760d8d835e2070c086f182b2527651367fcc",
+        "original_log_sha256": "d6a6df994f290437813c84ad445917e2b478bf3688f2dd595c599d6e92b42f7c"
+      },
+      "axioms": {
+        "status": "passed",
+        "exit_code": 0,
+        "command_template": [
+          "lake",
+          "env",
+          "lean",
+          "--stdin"
+        ],
+        "LEAN_NUM_THREADS": 2,
+        "started_utc": "2026-09-14T02:50:52.157104+00:00",
+        "finished_utc": "2026-09-14T02:51:18.465561+00:00",
+        "source_unchanged": true,
+        "original_receipt_sha256": "aa6a4722535a6979c9a083dea7dc722ca03a66257f02113129f7e8d915424803",
+        "original_log_sha256": "25e579c9847038295d7464fb016b1fe6da37b8cb73374e14ba846629cfba6b38"
+      },
+      "kernel": {
+        "status": "passed",
+        "exit_code": 0,
+        "command_template": [
+          "lake",
+          "env",
+          "leanchecker",
+          "--fresh",
+          "--verbose",
+          "NavierStokes.ComparatorSolution"
+        ],
+        "LEAN_NUM_THREADS": 2,
+        "started_utc": "2026-09-14T02:52:33.029699+00:00",
+        "finished_utc": "2026-09-14T03:31:49.963645+00:00",
+        "source_unchanged": true,
+        "original_receipt_sha256": "22701da58142dbf1940f064e8616d26fed3ebcb0ebc075d038c44489794946f2",
+        "original_log_sha256": "254f05baf3810deadfc49c4e943b0111a46afcf4d3a09087031ac9d36ac35bfc"
+      }
+    },
+    "actual_axiom_reports": {
+      "NavierStokes.Comparator.navier_stokes_breakdown_R3": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "NavierStokes.Comparator.navier_stokes_breakdown_periodic": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "NavierStokesR3.theorem_1_1": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "NavierStokesR3.theorem_1_1_with_initial_rest": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "NavierStokesR3.theorem_1_1_with_dissipation": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "runtime": {
+      "toolchain": "leanprover/lean4:v4.34.0-rc2",
+      "version": "Lean (version 4.34.0-rc2, x86_64-w64-windows-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)",
+      "files_sha256": {
+        "bin/cadical.exe": "525eb770c088b2d0c27aec57737eef8fa4ea06558cfe6ac6d37fbb18cb26d6f7",
+        "bin/clang.exe": "1aea18dca98f91a6a7c65532adc2567efc775904d2a4bd28bf06731bc2c3778c",
+        "bin/lake.exe": "5afaf2ad866c1aa6c1eda7bdb84ebd99e1de8be3a95a219094654dfa00b47c0a",
+        "bin/ld.lld.exe": "675e59f33f11cb90500577f116082ed4a6214fcac3a1bad88d6323aa0373179f",
+        "bin/lean.exe": "37dfe799f69b990251f3b6bcff8a1c10c1afe2adcdecc5c580cc6726ffb63433",
+        "bin/leanc.exe": "b0cfe9322a0428ea96d3311a4f9522987c6ad0c0d8fa8be73bdeb876fccc6120",
+        "bin/leanchecker.exe": "b7c503a7a984f32f04c1badb79e53e350ddb72aed530da12699e4b06357ce149",
+        "bin/leanir.exe": "c6c7e4b0bb90d66e12738b285b58b512dd61d732f35cdf25ed3dce60cc7e070a",
+        "bin/leanmake": "9f0b70acbde379a835c4fe80606501eb2586d6525ae874e802f7ef5ad50c18bb",
+        "bin/leantar.exe": "c7dbe74520f4c7fb132593f9f2bcd894618bf381b793961a4ab1bb37e13ba587",
+        "bin/libc++.dll": "8a9deaac6d2f4d2de468a544d1f35cd0dd4bcde03cda3cfb76fb9674749828d4",
+        "bin/libclang-cpp.dll": "1b32dd58335db4a984237e1fd1993cfd0f0fa413b5d10957290703eb03377ca4",
+        "bin/libInit_shared.dll": "8b5a4a6770496f59863de2ff4f3d03078f13daf44b4d96e0ebc652d96bf74449",
+        "bin/libLake_shared.dll": "90f568f009047398449860eb48809217e2d823ddeddcc819f6b44916ccddee50",
+        "bin/libleanshared.dll": "d38c48733fdf206d563e0ed4ad5ee9f2b8902170448dc1610af696a818ce1428",
+        "bin/libleanshared_1.dll": "c2fdcf27b5bbb5f5d7d8494ac7d8a300b8420ad59aad4e454813ed0276031106",
+        "bin/libleanshared_2.dll": "287296a726cb8ffbd88c4d3ed666636af5cd0ce21f83a6dc70fb442989cbbd47",
+        "bin/libLLVM-22.dll": "beaba61b3176e06fc0c4bf87e8bfae094a2405d01fa8e03d78029471555445d2",
+        "bin/lld.exe": "675e59f33f11cb90500577f116082ed4a6214fcac3a1bad88d6323aa0373179f",
+        "bin/llvm-ar.exe": "ff7fcf456130e4fb58bc24f7cf0f2e7113ce96af534fc61f861c54a43e674a9d",
+        "bin/zlib1.dll": "94dd0a72d4da79e25294a91d1edf902d76eade7512d9218609a5fe43e3a7397a",
+        "src/lean/LeanChecker.lean": "2d18ec111d73c536b0bdee2533556bb9548c349f386797d3d3837b1f84d55dae"
+      },
+      "postcheck_matched": true
+    },
+    "kernel_scope": "The fresh leanchecker replay uses Lean's kernel and is not a separate implementation of that kernel."
+  },
+  "linux": {
+    "status": "accepted",
+    "exit_code": 0,
+    "started_utc": "2026-09-14T02:08:12.7927063Z",
+    "finished_utc": "2026-09-14T02:39:51.6430786Z",
+    "command_template": [
+      "comparator",
+      "ComparatorChallenges/NavierStokes.json"
+    ],
+    "command_context": "Executed in the pinned source checkout by the recorded unprivileged service and scheduling wrapper. This normalized command is not a complete sandbox recreation recipe.",
+    "original_comparator_configuration": {
+      "challenge_module": "ComparatorChallenges.NavierStokes",
+      "solution_module": "NavierStokes.ComparatorSolution",
+      "enable_nanoda": true,
+      "theorem_names": [
+        "NavierStokes.Comparator.navier_stokes_breakdown_R3",
+        "NavierStokes.Comparator.navier_stokes_breakdown_periodic"
+      ],
+      "permitted_axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    "comparator": {
+      "completed_successfully": true,
+      "all_checks_accepted": true
+    },
+    "nanoda_outcome": "accepted",
+    "lean_default_kernel_outcome": "accepted",
+    "candidate_solution_precompiled_before_final_attempt": false,
+    "interrupted_solution_artifacts_copied_to_final_source": false,
+    "sandbox": {
+      "real_landrun": true,
+      "original_comparator_landrun_arguments": true,
+      "af_unix_restriction": "RestrictAddressFamilies=~AF_UNIX",
+      "af_unix_EAFNOSUPPORT_observed": true,
+      "fake_landrun_used": false,
+      "nanoda_disabled": false,
+      "proof_sources_patched": false,
+      "resource_only_lean_threads": 2
+    },
+    "runtime": {
+      "official_archive_url": "https://releases.lean-lang.org/lean4/v4.34.0-rc2/lean-4.34.0-rc2-linux.tar.zst",
+      "official_archive_sha256": "3d011041203acacf300d343a39673f7d233743397993797c941346ae9e5df1a8",
+      "lean_release_commit": "6a10ac8c22beadecabdbb0919c2b50214762f91d",
+      "landrun_source_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+      "nanoda_source_commit": "4c544ed4099c8227f07d5de77ad1e69fb0740a27",
+      "post_run_tool_hashes_match_recorded_prerun": true,
+      "tool_sha256": {
+        "lean": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+        "lake": "6f53827dab18010d6c690d14c8401cacabc1db958edb3552a877ed4cf1dd995d",
+        "resource_launcher": "bcd59e071120ff69fd0c09bfd59d710cb5ca14f86c1e6894d622a7e0bd268a6e",
+        "resource_launcher_source": "889a04bda2c2cd06eb9bb1dee8d984de46c8a774e64da0d636bc7a11b20b04e8",
+        "service_script": "1ac9c757a8e843ca8830e2a8facfb4a644cdbd881ce569a6aa085763ca1e9ed3",
+        "landrun": "998d05202740392e9706dd1869fd61dd25866f3e003799130dd07539f0c2b6f2",
+        "nanoda": "aae1207fa4e7519c2b607f6b0c2013dbaaf7c9cc0b94105131d043cb9721662e",
+        "comparator": "514de8d2acbd6e0102575cd2c575e336b7c4a40daf3ae66abe97cef5e1e6b02a",
+        "lean4export": "4fa9e14cada304109e85da5048bcd411cf781a03539b3e50953e5c537074bd9e"
+      }
+    },
+    "transcript_sha256": "d9eedb49a745b4b9ed633be09747031c888862c5029ebde73ef349b5ab6dc701",
+    "export": {
+      "size_bytes": 1072817978,
+      "sha256": "e55418617da91b85a265859e68eac49ff173c5877360a8640d7c9c4026454577",
+      "included_in_portable_record": false
+    },
+    "trust_assumptions": [
+      "Pinned challenge and its imports/configuration are trustworthy.",
+      "Mathlib cached artifacts are trustworthy.",
+      "OS/hardware and real Landrun sandbox operate correctly with the documented AF_UNIX mitigation.",
+      "At least one successful checking kernel is correct."
+    ]
+  },
+  "separate_scopes": {
+    "covariance": "The standalone conditional real-algebra lemma and its Windows compilation receipts are in covariance/. Its analytic application premises remain separate.",
+    "database": "The native database experiment is described in the companion article. Engine source, runtime and evidence snapshots are excluded. This public repository does not reproduce or admit the native experiment.",
+    "mathematics": "Formal acceptance is relative to the encoded statements and recorded trust assumptions. This summary does not supply external peer review, a Clay Prize determination, source-profile membership for the new covariance bound, or a new unforced global theorem."
+  }
+}

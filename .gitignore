@@ -1,0 +1,5 @@
+.lake/
+replay-environment/
+*.olean
+*.ilean
+*.trace

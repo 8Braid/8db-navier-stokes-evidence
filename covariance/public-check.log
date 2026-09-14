@@ -1,0 +1,7 @@
+'EightDB.CandidateCovariance.determinant_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EightDB.CandidateCovariance.numerator_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EightDB.CandidateCovariance.positive_weights' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EightDB.CandidateCovariance.quantitative_weights' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EightDB.CandidateCovariance.cramer_reconstruction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EightDB.CandidateCovariance.quarter_margin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EightDB.CandidateCovariance.quarter_margin_positive_weights' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,60 @@
+{
+  "schema": "public-covariance-proof-attachment-v1",
+  "title": "A checked normalized covariance margin",
+  "scope": "Conditional normalized real-algebra proof over a complete entry and slope box. No source-profile analytic membership or full PDE conclusion is certified by this attachment.",
+  "proof": {
+    "file": "8DB-OpenAI-Covariance-Lemma.lean",
+    "sha256": "1a654b9f6c0f92a71f990b4af482f48e6cb1dead960fb3c350944188ac1e5c87",
+    "byte_identical_to_previously_checked_source": true
+  },
+  "public_source_pins": {
+    "manuscript": {
+      "url": "https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf",
+      "sha256": "0e779481c4da40bd28d1e642e1d8ca57447d129610df28dfa5a11e9af8ae228f",
+      "proposition": "7.5",
+      "printed_pages": [
+        82,
+        83
+      ],
+      "primary_equations": [
+        "7.24",
+        "7.28"
+      ]
+    },
+    "formalization": {
+      "repository": "https://github.com/openai/NavierStokesAndEuler",
+      "commit": "f9e8bc5b38b6e212696e8a30e3e91517af887bbd"
+    },
+    "mathlib": {
+      "repository": "https://github.com/leanprover-community/mathlib4",
+      "commit": "85e3a25e006c35636f0e53b0e9296caca2685bc0"
+    },
+    "lean": {
+      "repository": "https://github.com/leanprover/lean4",
+      "toolchain": "leanprover/lean4:v4.34.0-rc2",
+      "commit": "6a10ac8c22beadecabdbb0919c2b50214762f91d"
+    }
+  },
+  "files": {
+    "8DB-OpenAI-Covariance-Lemma.lean": {
+      "bytes": 6598,
+      "sha256": "1a654b9f6c0f92a71f990b4af482f48e6cb1dead960fb3c350944188ac1e5c87"
+    },
+    "original-check.log": {
+      "bytes": 791,
+      "sha256": "299055e2a15f19080d912528ffb9da8acdb919342006da156b4dc062a656d4ea"
+    },
+    "public-check.log": {
+      "bytes": 766,
+      "sha256": "1443163a1ca69128f2e161cad9723532f078ad5738abb65bea93bdca3b17e148"
+    },
+    "README.md": {
+      "bytes": 5744,
+      "sha256": "92ca791e752454fb7f19e78f87373659be20b3b5c756fd4487c47dff44375097"
+    },
+    "verification.json": {
+      "bytes": 1830,
+      "sha256": "5192c5b216d60300eaed4b539c4be1001abf0131afb59fa8982c1ff01dd38749"
+    }
+  }
+}
