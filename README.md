@@ -1,5 +1,7 @@
 # Navier-Stokes covariance proof companion
 
+**New: [understand the covariance argument](explainability/README.md).** The companion includes an offline interactive diagram, four contrasting cases, five additional Lean-checked statements, and a map from the explanation to the original proof. [Read the article: The proof passed. Can you see why it works?](explainability/article.md) The examples distinguish failure of a sufficient bound from an exact obstruction for fixed columns. This explains one component, not the complete Navier-Stokes construction.
+
 A small, runnable Lean proof accompanying the [companion article](https://8braid.com/journal/openai-navier-stokes-proof-meets-a-new-kind-of-database).
 
 The work has three separate scopes:

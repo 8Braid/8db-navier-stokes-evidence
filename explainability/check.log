@@ -1,0 +1,18 @@
+'EightDB.CandidateCovariance.determinant_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EightDB.CandidateCovariance.numerator_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EightDB.CandidateCovariance.positive_weights' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EightDB.CandidateCovariance.quantitative_weights' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EightDB.CandidateCovariance.cramer_reconstruction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EightDB.CandidateCovariance.quarter_margin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EightDB.CandidateCovariance.quarter_margin_positive_weights' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EightDB.CandidateCovariance.Explanation.nominal_weights' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EightDB.CandidateCovariance.Explanation.perturbed_weights' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EightDB.CandidateCovariance.Explanation.outside_sufficient_box_but_positive' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'EightDB.CandidateCovariance.Explanation.outside_fixed_cone_negative_weight' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'EightDB.CandidateCovariance.Explanation.outside_fixed_cone_no_nonnegative_solution' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

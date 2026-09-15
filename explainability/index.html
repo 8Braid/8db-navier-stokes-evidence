@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Why two positive contributions are enough | 8Braid</title>
+<style>
+  :root{color-scheme:light dark;--bg:light-dark(#f8faf8,#141c19);--ink:light-dark(#192920,#e4eee7);--sub:light-dark(#506259,#b4c4ba);--rule:light-dark(#ccdad1,#3d5145);--mark:light-dark(#196847,#72d4a9);--cone:light-dark(#d4eadc,#243e30);--point:light-dark(#83400c,#f8b67c)}
+  *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,sans-serif}main{max-width:1020px;margin:auto;padding:32px 24px 60px}a{color:var(--mark)}header{max-width:740px}.brand{letter-spacing:.12em;text-transform:uppercase;color:var(--sub);font-size:13px}h1{font:500 clamp(27px,5vw,42px)/1.15 Georgia,serif;margin:16px 0}h2{font-size:20px;font-weight:500}p{max-width:76ch}.small{font-size:14px;color:var(--sub)}.controls{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 18px}button{font:inherit;padding:9px 12px;border:1px solid var(--rule);border-radius:5px;background:transparent;color:var(--ink);cursor:pointer}button[aria-pressed=true]{background:var(--ink);color:var(--bg)}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--mark);outline-offset:3px}.layout{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(270px,1fr);gap:32px}.figure{min-width:0}svg{display:block;width:100%;height:auto}svg text{fill:var(--ink);font:13px system-ui,sans-serif}.readout{border-top:1px solid var(--rule);padding-top:12px}dl{display:grid;grid-template-columns:1fr 1fr;gap:7px 12px}dt{color:var(--sub)}dd{margin:0;text-align:right;font-variant-numeric:tabular-nums}code{font-size:.94em;overflow-wrap:anywhere}input[type=range]{width:100%;accent-color:var(--mark)}label{display:block;margin-top:22px}output{font-variant-numeric:tabular-nums}.result{font-size:20px;font-weight:500;min-height:3.1em}.boundary{margin-top:28px;padding-top:18px;border-top:1px solid var(--rule)}table{border-collapse:collapse;width:100%;font-size:14px;table-layout:fixed}th,td{padding:10px 6px;text-align:left;border-bottom:1px solid var(--rule)}th{font-weight:500}@media(max-width:720px){.layout{grid-template-columns:1fr}main{padding:22px 16px 40px}.layout{gap:12px}.result{min-height:0}}
+</style>
+<main>
+  <header>
+    <div class="brand">8Braid · An inspectable proof component</div>
+    <h1>Why two positive contributions are enough</h1>
+    <p>A small part of a large proof can have a simple reason. Two available directions surround a target. Positive weights combine them to reach it. The formal lemma gives a sufficient allowance for changes in those directions.</p>
+    <p class="small">This explains the normalized covariance lemma in this repository. It does not simulate a fluid or prove Navier-Stokes blowup. <a href="README.md">Read the argument</a> · <a href="../covariance/8DB-OpenAI-Covariance-Lemma.lean">Original Lean proof</a> · <a href="WorkedExamples.lean">Exact examples</a></p>
+  </header>
+  <div class="controls" role="group" aria-label="Worked example">
+    <button type="button" data-case="nominal" aria-pressed="true">1. Nominal</button>
+    <button type="button" data-case="perturbed" aria-pressed="false">2. Perturbed columns</button>
+    <button type="button" data-case="unsupported" aria-pressed="false">3. Bound fails, weights work</button>
+    <button type="button" data-case="impossible" aria-pressed="false">4. Negative weight</button>
+  </div>
+  <div class="layout">
+    <div class="figure">
+      <svg id="cone" role="img" aria-labelledby="cone-title cone-desc"></svg>
+      <p class="small">Shaded area: visible part of the cone of positive combinations. Circle: target (1,s). Axes and values are normalized, dimensionless coordinates.</p>
+    </div>
+    <section class="readout" aria-label="Calculated weights">
+      <div id="result" class="result" aria-live="polite">Inside the sufficient guarantee</div>
+      <dl>
+        <dt>Target slope s</dt><dd id="s-value"></dd>
+        <dt>Margin m</dt><dd>2/5</dd>
+        <dt>Error bound m/4</dt><dd>1/10</dd>
+        <dt>First column</dt><dd id="first-col"></dd>
+        <dt>Second column</dt><dd id="second-col"></dd>
+        <dt>Determinant</dt><dd id="det"></dd>
+        <dt>First weight p</dt><dd id="p"></dd>
+        <dt>Second weight q</dt><dd id="q"></dd>
+      </dl>
+      <p id="reason"></p>
+      <p id="exact" class="small"></p>
+      <label for="slope">Explore the target slope: <output id="slope-output">0.40</output></label>
+      <input type="range" id="slope" min="-1.2" max="1.2" step="0.01" value="0.4">
+      <p class="small">Changing the slider is a floating-point illustration. Only the named presets below are checked by the additional Lean examples. The original lemma covers its whole stated parameter domain.</p>
+    </section>
+  </div>
+  <section class="boundary">
+    <h2>The reason, in three steps</h2>
+    <ol>
+      <li>With unperturbed columns, the equations are p + q = 1 and −p + q = s. Thus p = (1−s)/2 and q = (1+s)/2.</li>
+      <li>Keeping |s| ≤ 1−m leaves room before a weight reaches zero. The perturbed proof bounds the determinant and both Cramer numerators.</li>
+      <li>Entry errors of at most m/4 preserve positive numerators and a positive determinant. This proves a sufficient guarantee, not an optimal one.</li>
+    </ol>
+    <table>
+      <thead><tr><th>What you see</th><th>What the proof checks</th></tr></thead>
+      <tbody><tr><td>Independent directions</td><td><code>determinant_bounds</code></td></tr><tr><td>Target retains positive weights</td><td><code>numerator_bounds</code>, <code>positive_weights</code></td></tr><tr><td>The combination reaches the target</td><td><code>cramer_reconstruction</code></td></tr><tr><td>The error budget is sufficient</td><td><code>quarter_margin_positive_weights</code></td></tr></tbody>
+    </table>
+    <p>The intended PDE application requires separate analytic error estimates, an orthonormal frame, positive physical scales and masses, cone inclusion, and edge-flatness estimates. These are not established by this picture or by the normalized covariance lemma.</p>
+    <p class="small">The complete released theorem is the authors' forced construction. Our contribution here is an independently checked algebraic component and an explanation of its scope. No comprehension study has been run. <a href="article.md">Read the companion article</a> · <a href="REPLAY.md">Replay record</a></p>
+  </section>
+</main>
+<script>
+(() => {
+  const cases={
+    nominal:{s:.4,a:0,b:0,c:0,d:0,exact:'Exact preset: p = 3/10, q = 7/10. Lean: nominal_weights.'},
+    perturbed:{s:.6,a:.1,b:-.1,c:.1,d:-.1,exact:'Exact preset: p = 1/5, q = 13/15. Lean: perturbed_weights.'},
+    unsupported:{s:.8,a:0,b:0,c:0,d:0,exact:'Exact preset: p = 1/10, q = 9/10. Lean: outside_sufficient_box_but_positive.'},
+    impossible:{s:1.2,a:0,b:0,c:0,d:0,exact:'Exact preset: p = −1/10, q = 11/10. Lean also proves no nonnegative solution for these fixed columns.'}
+  };
+  let state={...cases.nominal},selected='nominal';
+  const get=id=>document.getElementById(id),svg=get('cone'),NS='http://www.w3.org/2000/svg';
+  function node(tag,attrs,text){const el=document.createElementNS(NS,tag);Object.entries(attrs).forEach(([k,v])=>el.setAttribute(k,v));if(text!==undefined)el.textContent=text;svg.appendChild(el);return el;}
+  const fmt=x=>(Math.abs(x)<1e-12?0:x).toFixed(6);
+  function draw(){
+    const {a,b,c,d,s}=state,C1=[1+a,-1+c],C2=[1+b,1+d];
+    const det=(1+a)*(1+d)-(1+b)*(-1+c),p=(1+d-(1+b)*s)/det,q=(1-c+(1+a)*s)/det;
+    const inside=Math.abs(s)<=.6+1e-12,negative=p < -1e-12||q < -1e-12;
+    get('s-value').textContent=fmt(s);get('det').textContent=fmt(det);get('p').textContent=fmt(p);get('q').textContent=fmt(q);
+    get('first-col').textContent=`(${(1+a).toFixed(1)}, ${(-1+c).toFixed(1)})`;
+    get('second-col').textContent=`(${(1+b).toFixed(1)}, ${(1+d).toFixed(1)})`;
+    get('slope-output').textContent=s.toFixed(2);
+    get('result').textContent=inside?'Inside the sufficient guarantee':negative?'A negative weight for these columns':'Outside the bound; no obstruction follows';
+    get('reason').textContent=inside?'All displayed parameters satisfy the existing lemma’s assumptions. The all-parameter result is in Lean.':negative?'The calculated combination needs a negative weight. The named fourth preset has an exact no-nonnegative-solution proof.':'This selected sufficient condition no longer applies. The local calculation can still have nonnegative weights; loss of a guarantee is not a counterexample.';
+    get('exact').textContent=selected?cases[selected].exact:'Exploration: displayed weights are floating-point calculations.';
+    document.querySelectorAll('[data-case]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.case===selected)));
+    const width=Math.max(280,svg.parentElement.clientWidth),height=370,m={left:57,right:25,top:25,bottom:45};
+    const X=x=>m.left+x/1.6*(width-m.left-m.right),Y=y=>m.top+(1.65-y)/3.3*(height-m.top-m.bottom);
+    svg.replaceChildren();svg.setAttribute('viewBox',`0 0 ${width} ${height}`);
+    node('title',{id:'cone-title'},'Positive combinations of two normalized columns');
+    node('desc',{id:'cone-desc'},`Target slope ${s}; first weight ${fmt(p)}, second weight ${fmt(q)}. ${get('result').textContent}.`);
+    node('polygon',{points:`${X(0)},${Y(0)} ${X(1.45*C1[0])},${Y(1.45*C1[1])} ${X(1.45*C2[0])},${Y(1.45*C2[1])}`,fill:'var(--cone)'});
+    node('line',{x1:X(0),y1:Y(0),x2:X(1.6),y2:Y(0),stroke:'var(--rule)'});
+    node('line',{x1:X(0),y1:Y(-1.65),x2:X(0),y2:Y(1.65),stroke:'var(--rule)'});
+    [-1,0,1].forEach(t=>{node('text',{x:X(0)-8,y:Y(t)+4,'text-anchor':'end'},String(t));});
+    [1].forEach(t=>node('text',{x:X(t),y:Y(0)+20,'text-anchor':'middle'},String(t)));
+    [C1,C2].forEach((c,i)=>{node('line',{x1:X(0),y1:Y(0),x2:X(c[0]),y2:Y(c[1]),stroke:'var(--mark)','stroke-width':2});node('circle',{cx:X(c[0]),cy:Y(c[1]),r:4,fill:'var(--mark)'});node('text',{x:X(c[0])-6,y:Y(c[1])+(i===0?23:-13),'text-anchor':'end'},i===0?'First column':'Second column');});
+    node('line',{x1:X(0),y1:Y(0),x2:X(1),y2:Y(s),stroke:'var(--point)','stroke-width':2,'stroke-dasharray':'5 4'});
+    node('circle',{cx:X(1),cy:Y(s),r:6,fill:'var(--point)',stroke:'var(--bg)','stroke-width':2});
+    node('text',{x:X(1)+10,y:Y(s)+5},'Target');
+    node('text',{x:(width+m.left-m.right)/2,y:height-8,'text-anchor':'middle'},'First coordinate');
+    node('text',{transform:`translate(15,${height/2}) rotate(-90)`,'text-anchor':'middle'},'Second coordinate');
+  }
+  document.querySelectorAll('[data-case]').forEach(b=>b.addEventListener('click',()=>{selected=b.dataset.case;state={...cases[selected]};get('slope').value=String(state.s);draw();}));
+  get('slope').addEventListener('input',e=>{state.s=Number(e.target.value);selected=null;draw();});
+  new ResizeObserver(draw).observe(svg.parentElement);draw();
+})();
+</script>
+</html>
