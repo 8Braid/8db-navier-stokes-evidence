@@ -1,5 +1,8 @@
 # Why two positive contributions are enough
 
+![A failed bound is not a failed result: three exact covariance examples.](three-cases.svg)
+
+
 This is a worked explanation of the [covariance lemma already in this repository](../covariance/8DB-OpenAI-Covariance-Lemma.lean). It adds a picture, exact examples, and a map from the explanation to the checked statements. It does not replace the proof.
 
 Open [index.html](index.html) in a browser after cloning or downloading this repository. It runs offline with no account, database, TKM service or network dependency. The drawing uses floating-point arithmetic and labels its calculations accordingly. The all-parameter guarantee comes from the existing Lean lemma. Five additional [Lean statements](WorkedExamples.lean) check the displayed rational examples and one exact obstruction.

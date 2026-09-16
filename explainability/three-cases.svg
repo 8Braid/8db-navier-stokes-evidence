@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" style="max-width:100%;height:auto" viewBox="0 0 1200 750" role="img" aria-labelledby="title desc">
+<title id="title">A failed bound is not a failed result</title>
+<desc id="desc">Three exact covariance examples with columns (1,-1) and (1,1). For target slope two fifths the sufficient guarantee applies and weights are three tenths and seven tenths. At four fifths the guarantee fails but weights one tenth and nine tenths stay positive. At six fifths no nonnegative solution exists for the fixed columns: the unique first weight is minus one tenth.</desc>
+<rect width="1200" height="750" fill="#f7f9f8"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#162c28}.eyebrow{font-size:13px;letter-spacing:1.5px;fill:#416b5f}.head{font-size:33px;font-weight:700}.sub{font-size:17px;fill:#4f655f}.label{font-size:14px}.status{font-size:19px;font-weight:700}.weight{font-size:23px;font-weight:700}.fine{font-size:14px;fill:#52665e}</style>
+<text x="38" y="35" class="eyebrow">8BRAID / 8DB · A CHECKED PROOF COMPONENT, MADE VISIBLE</text>
+<text x="38" y="84" class="head">A failed bound is not a failed result.</text>
+<text x="38" y="116" class="sub">Change the target. Keep the equations. Ask what the evidence still supports.</text>
+<g transform="translate(38,148)">
+<rect width="360" height="454" rx="12" fill="white" stroke="#d6e2db"/>
+<text x="22" y="31" class="eyebrow">01 / FIXED COLUMNS</text>
+<text x="22" y="60" class="status" style="fill:#16745b">The guarantee applies</text>
+<g transform="translate(8,0)">
+<polygon points="38,235 311,77 311,393" fill="#e2eee7"/>
+<polygon points="38,235 311,140.2 311,329.8" fill="#cfdded"/>
+<path d="M38 235 L311 77 M38 235 L311 393" stroke="#699c84" fill="none" stroke-width="1.4"/>
+<path d="M38 235 L311 140.2 M38 235 L311 329.8" stroke="#5175a1" fill="none" stroke-dasharray="5 5"/>
+<line x1="26" y1="235" x2="323" y2="235" stroke="#abbdb6"/>
+<line x1="38" y1="76" x2="38" y2="397" stroke="#abbdb6"/>
+<text x="14" y="254" class="label">0</text>
+<line x1="38" y1="235" x2="228" y2="125" stroke="#367a61" stroke-width="2.5"/>
+<line x1="38" y1="235" x2="228" y2="345" stroke="#367a61" stroke-width="2.5"/>
+<circle cx="228" cy="125" r="4" fill="#367a61"/>
+<circle cx="228" cy="345" r="4" fill="#367a61"/>
+<text x="135" y="115" class="label">(1, 1)</text><text x="135" y="367" class="label">(1, −1)</text>
+<line x1="38" y1="235" x2="228" y2="191" stroke="#16745b" stroke-width="2.5" stroke-dasharray="3 3"/>
+<circle cx="228" cy="191" r="6.5" fill="#16745b" stroke="white" stroke-width="2"/>
+<text x="241" y="196" class="label" style="fill:#16745b;font-weight:700">s = 2/5</text>
+</g>
+<rect x="1" y="382" width="358" height="71" rx="11" fill="#f0f5f2"/>
+<text x="22" y="409" class="weight">p = 3/10    q = 7/10</text>
+<text x="22" y="435" class="fine">The sufficient hypotheses hold.</text>
+</g>
+<g transform="translate(420,148)">
+<rect width="360" height="454" rx="12" fill="white" stroke="#d6e2db"/>
+<text x="22" y="31" class="eyebrow">02 / FIXED COLUMNS</text>
+<text x="22" y="60" class="status" style="fill:#9b5a0a">The result survives</text>
+<g transform="translate(8,0)">
+<polygon points="38,235 311,77 311,393" fill="#e2eee7"/>
+<polygon points="38,235 311,140.2 311,329.8" fill="#cfdded"/>
+<path d="M38 235 L311 77 M38 235 L311 393" stroke="#699c84" fill="none" stroke-width="1.4"/>
+<path d="M38 235 L311 140.2 M38 235 L311 329.8" stroke="#5175a1" fill="none" stroke-dasharray="5 5"/>
+<line x1="26" y1="235" x2="323" y2="235" stroke="#abbdb6"/>
+<line x1="38" y1="76" x2="38" y2="397" stroke="#abbdb6"/>
+<text x="14" y="254" class="label">0</text>
+<line x1="38" y1="235" x2="228" y2="125" stroke="#367a61" stroke-width="2.5"/>
+<line x1="38" y1="235" x2="228" y2="345" stroke="#367a61" stroke-width="2.5"/>
+<circle cx="228" cy="125" r="4" fill="#367a61"/>
+<circle cx="228" cy="345" r="4" fill="#367a61"/>
+<text x="135" y="115" class="label">(1, 1)</text><text x="135" y="367" class="label">(1, −1)</text>
+<line x1="38" y1="235" x2="228" y2="147" stroke="#9b5a0a" stroke-width="2.5" stroke-dasharray="3 3"/>
+<circle cx="228" cy="147" r="6.5" fill="#9b5a0a" stroke="white" stroke-width="2"/>
+<text x="241" y="152" class="label" style="fill:#9b5a0a;font-weight:700">s = 4/5</text>
+</g>
+<rect x="1" y="382" width="358" height="71" rx="11" fill="#f0f5f2"/>
+<text x="22" y="409" class="weight">p = 1/10    q = 9/10</text>
+<text x="22" y="435" class="fine">Both weights are still positive.</text>
+</g>
+<g transform="translate(802,148)">
+<rect width="360" height="454" rx="12" fill="white" stroke="#d6e2db"/>
+<text x="22" y="31" class="eyebrow">03 / FIXED COLUMNS</text>
+<text x="22" y="60" class="status" style="fill:#b03a46">An exact obstruction</text>
+<g transform="translate(8,0)">
+<polygon points="38,235 311,77 311,393" fill="#e2eee7"/>
+<polygon points="38,235 311,140.2 311,329.8" fill="#cfdded"/>
+<path d="M38 235 L311 77 M38 235 L311 393" stroke="#699c84" fill="none" stroke-width="1.4"/>
+<path d="M38 235 L311 140.2 M38 235 L311 329.8" stroke="#5175a1" fill="none" stroke-dasharray="5 5"/>
+<line x1="26" y1="235" x2="323" y2="235" stroke="#abbdb6"/>
+<line x1="38" y1="76" x2="38" y2="397" stroke="#abbdb6"/>
+<text x="14" y="254" class="label">0</text>
+<line x1="38" y1="235" x2="228" y2="125" stroke="#367a61" stroke-width="2.5"/>
+<line x1="38" y1="235" x2="228" y2="345" stroke="#367a61" stroke-width="2.5"/>
+<circle cx="228" cy="125" r="4" fill="#367a61"/>
+<circle cx="228" cy="345" r="4" fill="#367a61"/>
+<text x="135" y="115" class="label">(1, 1)</text><text x="135" y="367" class="label">(1, −1)</text>
+<line x1="38" y1="235" x2="228" y2="103" stroke="#b03a46" stroke-width="2.5" stroke-dasharray="3 3"/>
+<circle cx="228" cy="103" r="6.5" fill="#b03a46" stroke="white" stroke-width="2"/>
+<text x="241" y="108" class="label" style="fill:#b03a46;font-weight:700">s = 6/5</text>
+</g>
+<rect x="1" y="382" width="358" height="71" rx="11" fill="#f0f5f2"/>
+<text x="22" y="409" class="weight">p = −1/10    q = 11/10</text>
+<text x="22" y="435" class="fine">No nonnegative solution here.</text>
+</g><rect x="38" y="625" width="16" height="16" fill="#e2eee7"/><text x="64" y="638" class="fine">Nonnegative combinations</text>
+<rect x="307" y="625" width="16" height="16" fill="#cfdded"/><text x="333" y="638" class="fine">Selected sufficient range: |s| ≤ 3/5</text>
+<text x="38" y="678" class="sub">p + q = 1,  −p + q = s     →     p = (1−s)/2,  q = (1+s)/2</text>
+<text x="38" y="710" class="fine">Exact examples checked in Lean. Picture illustrates the argument; it is not the checker.</text>
+<text x="38" y="734" class="fine">One normalized algebraic component connected to forced Navier-Stokes. Separate PDE premises remain necessary.</text>
+</svg>

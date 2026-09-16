@@ -1,41 +1,52 @@
 # The proof passed. Can you see why it works?
 
-A proof checker can answer whether a conclusion follows from its formal premises. It cannot, by that fact alone, give a reader a reason they can hold in their head.
+**A visual companion to one algebraic step in the forced Navier-Stokes construction. Updated 15 September 2026.**
 
-Stephen Wolfram explores that gap in [Who Can Understand the Proof?](https://writings.stephenwolfram.com/2025/01/who-can-understand-the-proof-a-window-on-formalized-mathematics/). His example is an automatically generated proof about the foundations of Boolean algebra. A correct sequence of deductions can remain difficult to understand even after its steps have been displayed or shortened.
+A failed mathematical bound can look like a failed result. In our example, the bound stops applying while the result still holds. Push the same example further and it really does become impossible. The difference fits in one picture.
 
-Our work around OpenAI's released Navier-Stokes construction gave us a smaller place to start. We had replayed the authors' formal targets and separately developed a normalized covariance lemma. That lemma was already public, with Lean source and checking records. We have now added a worked explanation and an offline interactive companion.
+![Three exact cases separate a sufficient guarantee, a surviving result outside that guarantee, and an obstruction for fixed equations.](three-cases.svg)
 
-The question we chose is modest: why can two positive contributions supply a particular target, even when their directions are slightly wrong?
+We built this companion at 8Braid while working with OpenAI's released Navier-Stokes construction. It connects an offline interactive diagram to a standalone Lean lemma and five checked statements about selected examples.[1] A reader can change the target, see the weights change, and inspect the statement that supports each named case.
 
-## A piece of the proof you can draw
+That is a useful next step for AI-assisted mathematics: make the reason available for inspection alongside the checking record.
 
-Imagine two available contributions, represented by the vectors (1,−1) and (1,1). We want positive weights that combine them into (1,s).
+## A piece of the argument you can draw
 
-The first coordinate says the weights must add to one. The second says their difference must be s. The answer is therefore (1−s)/2 and (1+s)/2.
+Take two vectors, (1,−1) and (1,1). Can positive amounts of them combine into the target (1,s)?
 
-If s lies strictly between −1 and 1, both weights are positive. At an endpoint, one vanishes. Move beyond an endpoint and one must become negative.
+Call the amounts p and q. The first coordinate gives p + q = 1. The second gives −p + q = s. Solving these two equations gives:
 
-That last change matters. In the intended construction the weights describe normalized squared amplitudes. A negative squared amplitude is not an available choice.
+**p = (1−s)/2, q = (1+s)/2.**
 
-The next question is what happens when the two contribution vectors are perturbed. Our public lemma keeps the target a distance m from the endpoints and permits an error of at most m/4 in each matrix entry. It bounds the determinant and both Cramer numerators away from zero. The weights remain positive, and their combination reconstructs the target.
+When s = 2/5, the weights are 3/10 and 7/10. Both are positive. In the intended covariance construction, these weights represent normalized squared amplitudes, so positivity matters.
 
-This is the idea a reader should retain: spare room around the target pays for uncertainty in the directions. The fraction one quarter is a sufficient allowance, not a claim of optimality.
+Now allow uncertainty in the two vectors. Our lemma places the target a distance m from the endpoints and allows each matrix entry to change by at most m/4. It proves that the determinant and the two numerators used to calculate the weights remain positive. The reconstructed target is exact.[2]
 
-## A failed bound is not a failed construction
+The underlying reason is simple: spare room around the target pays for uncertainty in the directions. The one-quarter allowance is sufficient; we make no optimality claim.
 
-The companion has four named examples. Two satisfy the sufficient condition. In a third, that condition fails but the weights are still positive. In the fourth, one weight is negative, and an exact argument rules out any nonnegative solution for those fixed columns and target.
+## What happens when the guarantee expires?
 
-We added Lean statements for the rational examples, including the final obstruction. The browser is an illustration, not a theorem prover. Readers can inspect the calculations, open the matching statements, and run the checks themselves.
+Fix m = 2/5. The selected guarantee covers |s| ≤ 3/5. Moving the target to s = 4/5 leaves that range, but the original vectors still give positive weights: 1/10 and 9/10.
 
-The third example is as useful as the fourth. It shows why a system must distinguish “this certificate no longer applies” from “this mathematical possibility has been disproved.” An explanation that loses that distinction can be more misleading than a terse proof log.
+Move to s = 6/5 and the weights become −1/10 and 11/10. The equations force a negative weight. There is no nonnegative solution for those fixed vectors and that target.
 
-## What this says about the larger problem
+These are different outcomes. The first change requires another argument. The second has an exact obstruction. The worked examples include Lean statements for both, plus a perturbed case that the general guarantee covers.[1]
 
-The local calculation relates to the covariance inversion used to realize stress in the forced Navier-Stokes construction. Turning it into a statement about the actual fields requires additional analytic estimates and geometric hypotheses. Those are listed beside the demonstration. Our replay of the authors' proof is not an independent derivation, and this companion does not explain every step of the singular construction.
+A research system needs to preserve this distinction whenever an AI proposes changing a premise. Otherwise it can discard a useful construction because one estimate is too conservative, or keep searching after the fixed equations already rule out its target.
 
-For 8DB, this is a concrete product direction: keep the readable claim, its assumptions, its mathematical representation and its evidence connected as a researcher explores alternatives. The public companion works without the private database. It demonstrates the kind of presentation and scope discipline we want the larger system to support; it does not claim that the full evidence engine is included in this repository.
+## Where 8DB fits
 
-The next evaluation is about people. Can a reader predict the altered examples, reconstruct the small argument and find an omitted assumption more reliably with this companion? We have not run that study yet. A checked proof certifies the mathematics it states. Improved understanding needs its own evidence.
+Our database, 8DB, is being developed to keep claims, their joint premises, derivations and checking evidence connected as research changes. This public companion makes one part of that approach inspectable without access to the private engine. It supplies the explanation, formal source, exact examples and recorded checks.
 
-For now, the invitation is simple: [open the companion](README.md), change the target, and see which part of the reason survives.
+The local algebra relates to covariance inversion in the forced Navier-Stokes construction. Applying it to the actual fluid fields still requires the analytic estimates and geometric hypotheses listed with the lemma.[2] The repository also records our earlier replay of the authors' formal targets, with its source and environment identities.[3] The visual explains one component of that work.
+
+Stephen Wolfram's question about understanding machine-generated proofs helped motivate this direction.[4] Here, the human test is concrete: after exploring the picture, can someone predict which changed examples still work and explain why? We have not measured that yet.
+
+**[Download the companion](README.md), open `index.html`, and try the “Outside sufficient box” example.** It runs offline in a browser, with no account. Before selecting the next example, predict which weight will cross zero.
+
+## Notes
+
+1. [Worked examples](WorkedExamples.lean) and [the replay record](REPLAY.md). The five statements concern exact rational examples. The browser uses floating-point display calculations; the Lean statements supply the formal checks for the named cases. The diagram itself is an illustration.
+2. [Standalone covariance lemma and assumptions](../covariance/README.md). The source proves a sufficient bound over real parameters. Its application to the manuscript requires positive physical scales and column masses, an orthonormal frame, target-cone inclusion and analytic error estimates. Zero-target extension has additional obligations.
+3. [Historical upstream replay receipt](../formal-replay/receipt.json). This summarizes project replay results for the released authors' formalization. The repository distinguishes that historical record from the runnable standalone lemma and the private native database experiment.
+4. Stephen Wolfram, [Who Can Understand the Proof? A Window on Formalized Mathematics](https://writings.stephenwolfram.com/2025/01/who-can-understand-the-proof-a-window-on-formalized-mathematics/), 9 January 2025. His challenge concerns a different theorem, about Boolean algebra. It motivates the question about understanding; this companion makes no claim to solve that challenge.
