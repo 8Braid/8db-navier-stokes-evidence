@@ -1,6 +1,6 @@
 # The proof passed. Can you see why it works?
 
-**A visual companion to one algebraic step in the forced Navier-Stokes construction. Updated 15 September 2026.**
+**A visual companion to one algebraic step in the forced Navier-Stokes construction. Updated 17 September 2026.**
 
 A failed mathematical bound can look like a failed result. In our example, the bound stops applying while the result still holds. Push the same example further and it really does become impossible. The difference fits in one picture.
 
@@ -42,7 +42,7 @@ The local algebra relates to covariance inversion in the forced Navier-Stokes co
 
 Stephen Wolfram's question about understanding machine-generated proofs helped motivate this direction.[4] Here, the human test is concrete: after exploring the picture, can someone predict which changed examples still work and explain why? We have not measured that yet.
 
-**[Download the companion](README.md), open `index.html`, and try the “Outside sufficient box” example.** It runs offline in a browser, with no account. Before selecting the next example, predict which weight will cross zero.
+**[Open the interactive companion](https://8braid.github.io/8db-navier-stokes-evidence/explainability/) and try “Bound fails, weights work.”** No account is needed. You can also download the repository and open `index.html` offline. Before selecting the next example, predict which weight will cross zero.
 
 ## Notes
 
