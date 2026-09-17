@@ -2,7 +2,8 @@
 <html lang="en">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Why two positive contributions are enough | 8Braid</title>
+<title>When a proof's assumptions change | 8Braid</title>
+<meta name="description" content="Explore a Lean-checked Navier-Stokes algebra example: a guarantee can fail while the construction still works. Follow the picture to the exact evidence.">
 <style>
   :root{color-scheme:light dark;--bg:light-dark(#f8faf8,#141c19);--ink:light-dark(#192920,#e4eee7);--sub:light-dark(#506259,#b4c4ba);--rule:light-dark(#ccdad1,#3d5145);--mark:light-dark(#196847,#72d4a9);--cone:light-dark(#d4eadc,#243e30);--point:light-dark(#83400c,#f8b67c)}
   *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,sans-serif}main{max-width:1020px;margin:auto;padding:32px 24px 60px}a{color:var(--mark)}header{max-width:740px}.brand{letter-spacing:.12em;text-transform:uppercase;color:var(--sub);font-size:13px}h1{font:500 clamp(27px,5vw,42px)/1.15 Georgia,serif;margin:16px 0}h2{font-size:20px;font-weight:500}p{max-width:76ch}.small{font-size:14px;color:var(--sub)}.controls{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 18px}button{font:inherit;padding:9px 12px;border:1px solid var(--rule);border-radius:5px;background:transparent;color:var(--ink);cursor:pointer}button[aria-pressed=true]{background:var(--ink);color:var(--bg)}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--mark);outline-offset:3px}.layout{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(270px,1fr);gap:32px}.figure{min-width:0}svg{display:block;width:100%;height:auto}svg text{fill:var(--ink);font:13px system-ui,sans-serif}.readout{border-top:1px solid var(--rule);padding-top:12px}dl{display:grid;grid-template-columns:1fr 1fr;gap:7px 12px}dt{color:var(--sub)}dd{margin:0;text-align:right;font-variant-numeric:tabular-nums}code{font-size:.94em;overflow-wrap:anywhere}input[type=range]{width:100%;accent-color:var(--mark)}label{display:block;margin-top:22px}output{font-variant-numeric:tabular-nums}.result{font-size:20px;font-weight:500;min-height:3.1em}.boundary{margin-top:28px;padding-top:18px;border-top:1px solid var(--rule)}table{border-collapse:collapse;width:100%;font-size:14px;table-layout:fixed}th,td{padding:10px 6px;text-align:left;border-bottom:1px solid var(--rule)}th{font-weight:500}@media(max-width:720px){.layout{grid-template-columns:1fr}main{padding:22px 16px 40px}.layout{gap:12px}.result{min-height:0}}
@@ -10,9 +11,10 @@
 <main>
   <header>
     <div class="brand">8Braid · An inspectable proof component</div>
-    <h1>Why two positive contributions are enough</h1>
+    <h1>When a proof’s assumptions change</h1>
+    <p>Try “Bound fails, weights work,” then “Negative weight.” One loses a sufficient guarantee; the other has a checked obstruction for those exact inputs.</p>
     <p>A small part of a large proof can have a simple reason. Two available directions surround a target. Positive weights combine them to reach it. The formal lemma gives a sufficient allowance for changes in those directions.</p>
-    <p class="small">This explains the normalized covariance lemma in this repository. It does not simulate a fluid or prove Navier-Stokes blowup. <a href="README.md">Read the argument</a> · <a href="../covariance/8DB-OpenAI-Covariance-Lemma.lean">Original Lean proof</a> · <a href="WorkedExamples.lean">Exact examples</a></p>
+    <p class="small">This explains the normalized covariance lemma in this repository. It does not simulate a fluid or prove Navier-Stokes blowup. <a href="https://github.com/8Braid/8db-navier-stokes-evidence/blob/main/explainability/README.md">Read the argument</a> · <a href="https://github.com/8Braid/8db-navier-stokes-evidence/blob/main/covariance/8DB-OpenAI-Covariance-Lemma.lean">Original Lean proof</a> · <a href="https://github.com/8Braid/8db-navier-stokes-evidence/blob/main/explainability/WorkedExamples.lean">Exact examples</a></p>
   </header>
   <div class="controls" role="group" aria-label="Worked example">
     <button type="button" data-case="nominal" aria-pressed="true">1. Nominal</button>
@@ -56,7 +58,12 @@
       <tbody><tr><td>Independent directions</td><td><code>determinant_bounds</code></td></tr><tr><td>Target retains positive weights</td><td><code>numerator_bounds</code>, <code>positive_weights</code></td></tr><tr><td>The combination reaches the target</td><td><code>cramer_reconstruction</code></td></tr><tr><td>The error budget is sufficient</td><td><code>quarter_margin_positive_weights</code></td></tr></tbody>
     </table>
     <p>The intended PDE application requires separate analytic error estimates, an orthonormal frame, positive physical scales and masses, cone inclusion, and edge-flatness estimates. These are not established by this picture or by the normalized covariance lemma.</p>
-    <p class="small">The complete released theorem is the authors' forced construction. Our contribution here is an independently checked algebraic component and an explanation of its scope. No comprehension study has been run. <a href="article.md">Read the companion article</a> · <a href="REPLAY.md">Replay record</a></p>
+    <p class="small">The complete released theorem is the authors' forced construction. Our contribution here is a Lean-checked algebraic component and an explanation of its scope. The archived runs were performed by our project. No comprehension study has been run. <a href="https://github.com/8Braid/8db-navier-stokes-evidence/blob/main/explainability/article.md">Read the companion article</a> · <a href="https://github.com/8Braid/8db-navier-stokes-evidence/blob/main/explainability/REPLAY.md">Replay record</a></p>
+  </section>
+  <section class="boundary">
+    <h2>Why we built this</h2>
+    <p>When a research assumption changes, the next question is which conclusions still have support. At 8Braid, we are developing 8DB to keep claims, their premises and checking evidence connected through those changes. This companion makes one mathematical example inspectable; it runs locally in your browser and does not call the private database engine.</p>
+    <p><a href="https://github.com/8Braid/8db-navier-stokes-evidence">Explore the repository</a> or <a href="https://github.com/8Braid/8db-navier-stokes-evidence/issues/new?template=changed-assumption.md">suggest one changed-assumption example from your work</a>. Public examples help us choose a useful next case.</p>
   </section>
 </main>
 <script>

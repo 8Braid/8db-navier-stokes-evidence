@@ -1,60 +1,60 @@
-# Navier-Stokes covariance proof companion
+# When a proof's assumptions change, what still holds?
+
+**An interactive, Lean-checked example from Navier-Stokes research, built by 8Braid.**
+
+A bound can fail while the result it was meant to guarantee still holds. Our public proof companion lets you explore that difference, see a case where the equations really do rule out the target, and inspect the formal statements behind both outcomes.
+
+**[Open the interactive example](https://8braid.github.io/8db-navier-stokes-evidence/explainability/)** · [Read the explanation](explainability/article.md) · [Inspect the proof](covariance/8DB-OpenAI-Covariance-Lemma.lean)
 
 ![Three exact cases: the guarantee applies; the bound fails but positive weights survive; the fixed equations have an obstruction.](explainability/three-cases.svg)
 
-**Try the picture:** download or clone this repository and open `explainability/index.html`. It runs offline in a browser. Select a worked example, move the target, then inspect the matching Lean statement. No account or private 8DB service is needed. [Read the short explanation](explainability/article.md).
+The example explains one algebraic component of OpenAI's smoothly forced Navier-Stokes construction. It pairs a standalone Lean lemma with four worked cases, five additional checked statements, and recorded verification evidence. The mathematical scope and replay requirements are [documented separately](VERIFICATION.md).
 
-The companion includes four contrasting cases, five additional Lean-checked statements, and a [map from the explanation to the proof](explainability/README.md). It explains one algebraic component connected to the forced Navier-Stokes construction. The surrounding PDE arguments have separate premises.
+## Try a change and follow the evidence
 
-A small, runnable Lean proof accompanying the [companion article](https://8braid.com/journal/openai-navier-stokes-proof-meets-a-new-kind-of-database).
+Start with **“Bound fails, weights work.”** Two contributions still combine positively to reach the target, even though the selected sufficient guarantee no longer covers it. Then choose **“Negative weight.”** For those fixed inputs, an exact proof rules out every nonnegative solution.
 
-The work has three separate scopes:
+| Outcome | What the example establishes | Why the distinction matters |
+|---|---|---|
+| The guarantee applies | The stated assumptions ensure positive weights and exact reconstruction. | You can use the theorem within its domain. |
+| The guarantee stops applying | A named example still has positive weights, checked directly. | Losing one argument does not refute the result. |
+| The fixed equations have an obstruction | A named example admits no nonnegative solution. | Those inputs must change for the construction to work. |
 
-1. **Upstream proof checks.** The article describes checks of the [public Navier-Stokes formalization](https://github.com/openai/NavierStokesAndEuler/tree/f9e8bc5b38b6e212696e8a30e3e91517af887bbd). Those checks concern the upstream development. A [sanitized historical replay receipt](formal-replay/receipt.json) records the Windows and Linux outcomes, exact source and runtime identities, and the hashes of the sealed original records. It is a summary, not a full upstream replay kit. The separate compilation receipt in `covariance/` concerns the standalone lemma below.
-2. **A runnable covariance lemma.** [The Lean source](covariance/8DB-OpenAI-Covariance-Lemma.lean) proves a sufficient normalized error margin for positive inverse weights, over arbitrary real parameters. The [actual compilation receipt](covariance/verification.json), [seven printed axiom reports](covariance/public-check.log), and [earlier check output](covariance/original-check.log) are included.
-3. **A native evidence experiment.** The article separately describes representing and checking evidence in a database. The database engine is not included here, so this repository does not reproduce that native experiment.
+The browser illustrates the calculation with floating-point values. Lean supplies the general theorem and the exact named examples. Moving the slider does not run a proof checker.
 
-For
+**Offline option:** [download the repository](https://github.com/8Braid/8db-navier-stokes-evidence/archive/refs/heads/main.zip), unzip it and open `explainability/index.html`. The interactive calculation runs locally without an account or a private 8DB service. Source links open GitHub.
 
-```text
-C = [[1+a, 1+b], [-1+c, 1+d]],    target = (1,s),
-```
+## Who can use this?
 
-the lemma assumes `0 < m < 1`, entry errors `|a|, |b|, |c|, |d| <= m/4`, and `|s| <= 1-m`. It proves `det(C) >= 7/8 > 0`, positive Cramer weights, and exact target reconstruction. More general determinant, numerator, and quantitative weight bounds are also proved.
+- **Researchers and technical reviewers:** follow a claim from its assumptions to its formal statement and checking record. Start with the [explanation-to-proof map](explainability/README.md#from-explanation-to-evidence).
+- **Developers of mathematical AI:** use the exact examples to test whether an agent distinguishes an unsupported inference from a counterexample. These are small test fixtures; they are not a benchmark of general mathematical ability.
+- **Readers curious about AI-assisted mathematics:** explore the picture first. The explanation starts with two linear equations, so you can understand the mechanism without first learning fluid dynamics or Lean.
 
-This is conditional normalized algebra. Applying it to the manuscript's actual fields requires separate analytic error estimates, positive physical scales and column masses, an orthonormal frame, and target-cone inclusion. Smooth extension at a zero-target edge requires additional flatness estimates. The attachment does not establish those premises or a full PDE theorem, and it does not certify a numerical improvement to the separate loop work.
+## Why 8Braid is doing this
 
-The source connection is Proposition 7.5, printed pages 82 and 83 of the [public manuscript](https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf). The [manifest](covariance/manifest.json) records source pins and file hashes; [the covariance checksum list](covariance/SHA256SUMS) also covers the manifest.
+Research changes. An estimate improves, a premise is withdrawn, or an AI proposes a different construction. The useful question is then: **which conclusions still have a complete, valid argument?**
 
-## Check the attachment hashes
+Our database, [8DB](https://8braid.com/), is being developed to keep claims, their joint premises, derivations and checking evidence connected as that work evolves. The aim is to make a result's support inspectable and reusable, and to make the effect of a changed premise explicit.
 
-From the repository root in a Bash-compatible shell, run:
+This repository publishes a small worked example of that discipline. You can inspect the mathematical evidence and its explanation here. The private database engine and its native evidence experiment have a separate implementation and are not reproduced by this companion. [The project article](https://8braid.com/journal/openai-navier-stokes-proof-meets-a-new-kind-of-database) describes that wider work.
 
-```bash
-sha256sum --check SHA256SUMS
-(cd covariance && tr -d '\r' < SHA256SUMS | sha256sum --check -)
-```
+For a research team, the potential benefit is less repeated checking and fewer unsupported conclusions as a project changes. That is a value proposition to test with users, not a measured productivity result from this example.
 
-The seven files in `covariance/` are byte-identical to the public proof attachment, including its manifest. Its checksum list retains its original CRLF line endings; the command normalizes only the list passed to the checker. The root checksum list additionally covers this README and the sanitized formal replay receipt. Matching hashes verify the recorded bytes; they do not replace a mathematical check. Git attributes preserve those bytes across platforms.
+## How this connects to Navier-Stokes
 
-The receipt records successful Windows library, axiom and fresh Lean-kernel checks, and successful Linux Comparator, Nanoda and default-kernel checks. Preparing this companion verified the sealed archive and its manifest but did not rerun those checks. The complete transcripts, original source bundle and runtime binaries are not included here.
+The lemma concerns covariance inversion in Proposition 7.5 of the [released manuscript](https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf), printed pages 82–83. Positive weights matter because they represent normalized squared amplitudes in the intended construction.
 
-## Replay with the pinned environment
+Applying this algebra to the actual fluid fields requires additional analytic and geometric premises. The lemma establishes the normalized algebra; the full PDE argument remains separate. The repository also preserves a historical summary of our checks of the authors' released formalization. [See the exact scope, assumptions and receipts](VERIFICATION.md).
 
-The public proof was compiled unchanged with Lean `4.34.0-rc2`, Mathlib `85e3a25e006c35636f0e53b0e9296caca2685bc0`, and one Lean worker. The recorded exit code is **0**. All seven axiom reports list exactly `propext`, `Classical.choice`, and `Quot.sound`.
+## Inspect or extend the work
 
-From this repository's root, use an existing upstream checkout with its dependencies and compiled Mathlib imports already available. Set `UPSTREAM_ENV` to that checkout, then run in Bash:
+| Your next step | Start here |
+|---|---|
+| Understand the argument | [Short article](explainability/article.md) and [worked examples](explainability/README.md) |
+| Reproduce the formal checks | [Pinned environment and replay instructions](VERIFICATION.md#replay-with-the-pinned-environment), then [example replay](explainability/REPLAY.md) |
+| Check the recorded file identities | [Checksum instructions](VERIFICATION.md#check-the-attachment-hashes) |
+| See what an extension must demonstrate | [Research and usability roadmap](ROADMAP.md) |
 
-```bash
-set -eu
-COVARIANCE_PROOF="$(pwd)/covariance/8DB-OpenAI-Covariance-Lemma.lean"
-cd "$UPSTREAM_ENV"
-test "$(git rev-parse HEAD)" = "f9e8bc5b38b6e212696e8a30e3e91517af887bbd"
-test "$(tr -d '\r\n' < lean-toolchain)" = "leanprover/lean4:v4.34.0-rc2"
-test "$(git -C .lake/packages/mathlib rev-parse HEAD)" = "85e3a25e006c35636f0e53b0e9296caca2685bc0"
-LEAN_NUM_THREADS=1 lake env lean "$COVARIANCE_PROOF"
-```
+**Bring one changed-assumption example from your work.** [Open an issue](https://github.com/8Braid/8db-navier-stokes-evidence/issues/new?template=changed-assumption.md) with the original claim, the assumption you would change, and the result you want to distinguish. A small public example is enough to start; please keep unpublished or confidential material private. The goal is to identify a useful next case for an inspectable proof companion.
 
-For an environment download recipe, see [the covariance attachment instructions](covariance/README.md), running those instructions from `covariance/`. This command checks the standalone proof with the Lean compiler/kernel. It does not run Comparator, Nanoda, or the database engine. The log contains the actual Windows compilation output; the receipt omits local machine paths.
-
-No blanket license grant is added here. Third-party software and source material remain subject to their respective terms.
+Third-party sources retain their respective terms. This repository currently adds no blanket license grant; see [verification and reuse information](VERIFICATION.md).
